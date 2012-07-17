@@ -33,10 +33,9 @@ module OmniContacts
       #   is simply forwarded to the next middleware component.
       def call env
         @env = env
-        Rails.logger.info "PIPPOPPOPOPO #{redirect_path}"
         if env["PATH_INFO"] =~ /^#{@listening_path}\/?$/
           handle_initial_request
-        elsif env["PATH_INFO"] =~ /^#{redirect_path}/
+        elsif env["PATH_INFO"] =~ /#{redirect_path}/
           handle_callback
         else
           @app.call(env)
