@@ -13,7 +13,7 @@ module OmniContacts
 
       def initialize app, options
         @app = app
-        @listening_path = "/contacts/" + class_name
+        @listening_path = "/ocontacts/" + class_name
         @ssl_ca_file = options[:ssl_ca_file]
       end
 
